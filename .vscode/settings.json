@@ -1,11 +1,35 @@
 {
     "editor.formatOnSave": true,
-    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "[yaml]": {
-        "editor.tabSize": 2
-    }
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit"
+        }
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit"
+        }
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "js/ts.tsdk.path": "node_modules/typescript/lib",
+    "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+    "plantuml.jar": "/opt/plantuml/plantuml.jar",
+    "plantuml.render": "Local",
+    "plantuml.exportFormat": "svg",
+    "plantuml.diagramsRoot": "docs/diagrams",
+    "plantuml.exportOutDir": "docs/diagrams/out"
 }

@@ -1,0 +1,19 @@
+@startuml
+class Reservation {
+  - numeroReservation : String
+  - dateArrivee : Date
+  - dateDepart : Date
+}
+
+class Client {
+  - nom : String
+  - telephone : String
+}
+
+class CategorieDeChambres {
+  - nom : String
+}
+
+Client -- Reservation
+Reservation --> CategorieDeChambres
+@enduml

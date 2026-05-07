@@ -1,18 +1,26 @@
 {
-    "name": "Template Development Container",
-    "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+    "name": "ETS - LOG210",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:24-bookworm",
+    "runArgs": ["--hostname", "LOG210"],
     "customizations": {
-        "settings": {
-            "terminal.integrated.shell.linux": "/bin/bash"
-        },
         "vscode": {
             "extensions": [
-                "ms-vscode.atom-keybindings",
-                "ms-vscode-remote.remote-containers",
-                "ms-azuretools.vscode-docker",
-                "myriad-dreamin.tinymist"
+                "jebbs.plantuml",
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "orta.vscode-jest",
+                "firsttris.vscode-jest-runner",
+                "yzhang.markdown-all-in-one",
+                "DavidAnson.vscode-markdownlint",
+                "EditorConfig.EditorConfig",
+                "eamodio.gitlens",
+                "GitHub.vscode-pull-request-github"
             ]
         }
     },
-    "remoteUser": "vscode"
+    "postCreateCommand": {
+        "plantuml": "bash .devcontainer/setup-plantuml.sh",
+        "shell": "bash .devcontainer/setup-shell.sh"
+    },
+    "remoteUser": "node"
 }
