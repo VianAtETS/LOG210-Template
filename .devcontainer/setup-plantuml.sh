@@ -8,7 +8,8 @@ JAR_URL="https://github.com/plantuml/plantuml/releases/download/v${PLANTUML_VERS
 sudo apt-get update -y
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     default-jre-headless \
-    graphviz
+    graphviz \
+    librsvg2-bin
 sudo rm -rf /var/lib/apt/lists/*
 
 sudo mkdir -p "$PLANTUML_DIR"

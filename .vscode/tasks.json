@@ -10,13 +10,40 @@
             "windows": {
                 "command": "git fetch --prune; git branch -vv | Select-String origin | ForEach-Object { $_.ToString().Trim() -replace '\\*', '' } | Where-Object { $_ -match '^\\s*(\\S+)\\s+\\w+\\s+\\[origin/([^\\]:]+).*: gone\\]' } | ForEach-Object { ($_ -split '\\s+')[0] } | ForEach-Object { git branch -D $_ }"
             },
+        },
+        {
+            "label": "Export PlantUML → PDF (remise TP)",
+            "type": "shell",
+            "command": "plantuml -tsvg -pipe < '${file}' | rsvg-convert -f pdf -o '${workspaceFolder}/LOG210-0${input:groupe}_TP${input:tp}_${input:prenom}_${input:nom}.pdf'",
             "problemMatcher": [],
             "presentation": {
-                "close": true
-            },
-            "runOptions": {
-                "runOn": "folderOpen"
+                "reveal": "always",
+                "panel": "shared"
             }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "groupe",
+            "type": "promptString",
+            "description": "Numero de groupe (XX dans LOG210-XX)",
+            "default": "2"
+        },
+        {
+            "id": "tp",
+            "type": "promptString",
+            "description": "Numero du TP (XX dans TPXX)",
+            "default": "1"
+        },
+        {
+            "id": "prenom",
+            "type": "promptString",
+            "description": "Prenom"
+        },
+        {
+            "id": "nom",
+            "type": "promptString",
+            "description": "Nom de famille"
         }
     ]
 }
