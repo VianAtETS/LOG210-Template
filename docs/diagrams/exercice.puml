@@ -1,19 +1,48 @@
-@startuml
-class Reservation {
-  - numeroReservation : String
-  - dateArrivee : Date
-  - dateDepart : Date
+@startuml CU01- S'inscrire au prochain trimestre
+
+skinparam classFontSize 16
+skinparam defaultFontSize 14
+skinparam noteFontSize 12
+
+class Etudiant {
+  numeroEtudiant : String
+  cleAuthentification : String
+  adresseIP : String
 }
 
-class Client {
-  - nom : String
-  - telephone : String
+class Inscription {
+  dateInscription : Date
+  statut : String
 }
 
-class CategorieDeChambres {
-  - nom : String
+class GroupeCours {
+  numero : String
+  placesDisponibles : int
 }
 
-Client -- Reservation
-Reservation --> CategorieDeChambres
+class Cours {
+  code : String
+  description : String
+}
+
+class Trimestre {
+  annee : int
+  saison : String
+}
+
+class Horaire {
+  jour : String
+  heureDebut : String
+  heureFin : String
+  local : String
+}
+
+Etudiant "1" -- "0..*" Inscription : demarre >
+Inscription "1" -- "1..*" GroupeCours : contient >
+GroupeCours "1..*" -- "1" Cours : offert pour >
+GroupeCours "1..*" -- "1" Trimestre : offert lors de >
+GroupeCours "1" -- "1" Horaire : a >
+Etudiant "1" -- "0..*" Cours : a reussi >
+Cours "0..*" -- "0..*" Cours : a comme prealable >
+
 @enduml
