@@ -27,13 +27,13 @@
             "id": "groupe",
             "type": "promptString",
             "description": "Numero de groupe (XX dans LOG210-XX)",
-            "default": "2"
+            "default": "02"
         },
         {
             "id": "tp",
             "type": "promptString",
             "description": "Numero du TP (XX dans TPXX)",
-            "default": "1"
+            "default": "01"
         },
         {
             "id": "prenom",
