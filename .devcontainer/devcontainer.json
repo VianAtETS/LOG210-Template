@@ -14,13 +14,15 @@
                 "DavidAnson.vscode-markdownlint",
                 "EditorConfig.EditorConfig",
                 "eamodio.gitlens",
-                "GitHub.vscode-pull-request-github"
+                "GitHub.vscode-pull-request-github",
+                "yorke.pug-lint"
             ]
         }
     },
     "postCreateCommand": {
-        "plantuml": "bash .devcontainer/setup-plantuml.sh",
-        "shell": "bash .devcontainer/setup-shell.sh"
+        "plantuml": "bash .devcontainer/setup-plantuml.sh && npm install",
+        "shell": "bash .devcontainer/setup-shell.sh",
+        "git": "bash .devcontainer/setup-git-personal.sh"
     },
     "remoteUser": "node"
 }
